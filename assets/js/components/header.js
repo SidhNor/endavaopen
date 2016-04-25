@@ -62,8 +62,8 @@ var Header = React.createClass({
     if (this.isActive('home')) {
       mastheadContent = (
         <div className="masthead-meta">
-          <h2 className="masthead-title">May 15 - 17, 2015</h2>
-          <h4 className="masthead-subtitle">Niagara Fitness Center,<br/>Chisinau, MD</h4>
+          <h2 className="masthead-title">May 20 - 22, 2016</h2>
+          <h4 className="masthead-subtitle">Tennis Club Acvila,<br/>Chisinau, MD</h4>
         </div>
       );
     } else {
@@ -92,6 +92,7 @@ var Header = React.createClass({
               <Tab label="Schedule" route="schedule" onActive={this._onActive} />
               <Tab label="Players" route="players" onActive={this._onActive}/>
               <Tab label="Rules" route="rules" onActive={this._onActive}/>
+              <Tab label="Live" route="live" onActive={this._onActive}/>
             </Tabs>
           </ToolbarGroup>
         </Toolbar>

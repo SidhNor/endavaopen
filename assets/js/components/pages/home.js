@@ -26,7 +26,7 @@ var HomePage = React.createClass({
         </Card>
         <section className="onsite-pic"></section>
         <section className="open-begins layout flex vertical">
-          <h2>Endava Open begins May 15 1:00 PM EEST</h2>
+          <h2>Endava Open begins May 20 10:00 AM EEST</h2>
           <CountDown/>
         </section>
       </div>

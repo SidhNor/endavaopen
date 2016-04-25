@@ -7,7 +7,8 @@ var React = require('react'),
     { route: 'doubles', text: 'Doubles' },
     { route: 'schedule', text: 'Schedule' },
     { route: 'players', text: 'Players' },
-    { route: 'rules', text: 'Rules' }
+    { route: 'rules', text: 'Rules' },
+    { route: 'live', text: 'Live' }
   ];
 
 var OpenLogo = require('./controls/open-logo.js')

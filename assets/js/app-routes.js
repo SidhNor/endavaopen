@@ -11,6 +11,7 @@ var DoubleTournament = require('./components/pages/doubletournament');
 var Schedule = require('./components/pages/schedule');
 var Rules = require('./components/pages/rules');
 var Players = require('./components/pages/players');
+var Live = require('./components/pages/live');
 
 /** Routes: https://github.com/rackt/react-router/blob/master/docs/api/components/Route.md
  *
@@ -28,6 +29,7 @@ var AppRoutes = (
     <Route name="players" handler={Players} addHandlerKey={true}/>
     <Route name="schedule" handler={Schedule} addHandlerKey={true}/>
     <Route name="rules" handler={Rules} addHandlerKey={true}/>
+    <Route name="live" path="video" handler={Live} addHandlerKey={true}/>
     <DefaultRoute handler={Home} addHandlerKey={true} name="home"/>
   </Route>
 );

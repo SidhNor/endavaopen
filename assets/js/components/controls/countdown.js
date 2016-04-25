@@ -12,7 +12,7 @@ var CountDown = React.createClass({
     Reflux.listenTo(tournamentStore, 'onStoreUpdate')
   ],
 
-  beginDate: new Date('May 15, 2015, 13:00:00 GMT+0300').getTime(),
+  beginDate: new Date('May 20, 2016, 10:00:00 GMT+0300').getTime(),
   currentDate: new Date().getTime(),
 
   getInitialState: function(){
@@ -38,26 +38,17 @@ var CountDown = React.createClass({
       label = 'minutes until ENDAVA open begins';
     } else {
       started = true;
-      var court;
-      if (this.state.isIndoor) {
-        court = (
-          <div>
-            <FlatButton link={true} href="#schedule" label="Now Playing at State University Courts"/>
-            <div className="court-location">
-              <img src="https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&maptype=roadmap&markers=color:red%7Clabel:A%7C47.0192096,28.824373&center=47.0192096,28.824373"/>
-            </div>
+      var court = (
+        <div>
+          <FlatButton linkButton={true} href="#schedule" label="Now Playing at Tennis Club Acvila"/>
+          <FlatButton linkButton={true} href="https://www.google.com/maps/dir/Current+Location/Tennis+Club+Acvila" label=" " target="__blank" className="directions" tooltip="Directions"
+                      tooltipPosition="top-center"/>
+          <div className="court-location">
+            <img
+              src="https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=400x300&maptype=roadmap&markers=color:red%7Clabel:A%7C47.0421601,28.7990609&center=47.0421601,28.7990609"/>
           </div>
-        );
-      } else {
-        court = (
-          <div>
-            <FlatButton link={true} href="#schedule" label="Now Playing at Niagara Courts"/>
-            <div className="court-location">
-              <img src="https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&maptype=roadmap&markers=color:red%7Clabel:A%7C47.051369,28.782887&center=47.051369,28.782887"/>
-            </div>
-          </div>
-        )
-      }
+        </div>
+      )
     }
     if (started) {
       return (
@@ -71,7 +62,7 @@ var CountDown = React.createClass({
           <div className="countdown-timer">
           {count}
           </div>
-          <FlatButton link={true} href="#schedule" label={label}/>
+          <FlatButton linkButton={true} href="#schedule" label={label}/>
         </div>
       );
     }
