@@ -31,7 +31,7 @@ var AppLeftNav = React.createClass({
           <span>Spring 2015</span>
         </div>
         <div className="bottom">
-          <div>May 15 - 17, 2015</div>
+          <div>May 20 - 22, 2015</div>
           <div>Chisinau, MD</div>
         </div>
       </div>;
