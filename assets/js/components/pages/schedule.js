@@ -53,7 +53,7 @@ var SchedulePage = React.createClass({
                 </div>
                 <div className="layout horizontal">
                   <span className="schedule-time">14:30 - 17:30</span>
-                  <span>Quarter-finals (Singles and Doubles)</span>
+                  <span>Quarterfinals (Singles and Doubles)</span>
                 </div>
               </div>
             </div>
@@ -67,11 +67,11 @@ var SchedulePage = React.createClass({
               <div className="schedule-rows">
                 <div className="layout horizontal">
                   <span className="schedule-time">10:30 - 11:30</span>
-                  <span>Semi-finals (Singles)</span>
+                  <span>Semifinals (Singles)</span>
                 </div>
                 <div className="layout horizontal">
                   <span className="schedule-time">12:00 - 13:00</span>
-                  <span>Semi-finals (Doubles)</span>
+                  <span>Semifinals (Doubles)</span>
                 </div>
                 <div className="layout horizontal">
                   <span className="schedule-time">14:00 - 15:00</span>
