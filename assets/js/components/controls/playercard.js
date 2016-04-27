@@ -9,7 +9,7 @@ var PlayerCard = React.createClass({
 
   render: function() {
     var player = this.props.player;
-    var picUrl = player.hqPhotoUri !== '' ? player.hqPhotoUri : '/images/no-pic.jpg';
+    var picUrl = player.hqPhotoUri ? player.hqPhotoUri : '/images/no-pic.jpg';
     var bgImg = {
       backgroundImage: 'url(' + picUrl + ')'
     };
