@@ -23,7 +23,6 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 	player.listView()
 		.title('Players')
 		.fields([
-			nga.field('id'),
 			nga.field('fullName')
 				.label('Name'),
 			nga.field('deliveryUnit')
@@ -38,35 +37,35 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 	player.creationView()
 		.title('New Player')
 		.fields([
-			nga.field('fullName'),
-			nga.field('photoUri'),
-			nga.field('hqPhotoUri'),
-			nga.field('deliveryUnit'),
-			nga.field('jobTitle'),
-			nga.field('description', 'text'),
+			nga.field('fullName').label('Name'),
+			nga.field('photoUri').label('Photo URL (deprecated)'),
+			nga.field('hqPhotoUri').label('HQ Photo URL'),
+			nga.field('deliveryUnit').label('Delivery Unit'),
+			nga.field('jobTitle').label('Job Title'),
+			nga.field('description', 'wysiwyg'),
 			nga.field('seedNumber')
 		]);
 	player.editionView()
     .title('<img src="{{ entry.values.hqPhotoUri }}" width="50" style="vertical-align: text-bottom"/> {{ entry.values.fullName }}\'s details')
 		.fields([
-			nga.field('fullName'),
-			nga.field('photoUri'),
-			nga.field('hqPhotoUri'),
-			nga.field('deliveryUnit'),
-			nga.field('jobTitle'),
-			nga.field('description', 'text'),
+      nga.field('fullName').label('Full Name'),
+      nga.field('photoUri').label('Photo URL (deprecated)'),
+      nga.field('hqPhotoUri').label('HQ Photo URL'),
+      nga.field('deliveryUnit').label('Delivery Unit'),
+      nga.field('jobTitle').label('Job Title'),
+			nga.field('description', 'wysiwyg'),
 			nga.field('seedNumber')
 		]);
 	player.showView()
     .title('<img src="{{ entry.values.hqPhotoUri }}" width="50" style="vertical-align: text-bottom"/> {{ entry.values.fullName }}\'s details')
 		.fields([
 			nga.field('id'),
-			nga.field('fullName'),
-			nga.field('photoUri'),
-			nga.field('hqPhotoUri'),
-			nga.field('deliveryUnit'),
-			nga.field('jobTitle'),
-			nga.field('description', 'text'),
+      nga.field('fullName').label('Full Name'),
+      nga.field('photoUri').label('Photo URL (deprecated)'),
+      nga.field('hqPhotoUri').label('HQ Photo URL'),
+      nga.field('deliveryUnit').label('Delivery Unit'),
+      nga.field('jobTitle').label('Job Title'),
+			nga.field('description', 'wysiwyg'),
 			nga.field('seedNumber'),
 			nga.field('createdAt', 'datetime'),
 			nga.field('updatedAt', 'datetime')
@@ -77,8 +76,8 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 	tournament.listView()
 		.title('Tournaments')
 		.fields([
-			nga.field('id'),
 			nga.field('name'),
+      nga.field('year'),
 			nga.field('started', 'boolean'),
 			nga.field('indoor', 'boolean')
 		])
@@ -87,6 +86,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 		.title('New Tournament')
 		.fields([
 			nga.field('name'),
+			nga.field('year'),
 			nga.field('started', 'boolean'),
 			nga.field('indoor', 'boolean')
 		]);
@@ -94,13 +94,16 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 		.title('Edit Tournament')
 		.fields([
 			nga.field('name'),
+      nga.field('year'),
 			nga.field('started', 'boolean'),
 			nga.field('indoor', 'boolean')
 		]);
 	tournament.showView()
 		.title('Tournament Details')
 		.fields([
+      nga.field('id'),
 			nga.field('name'),
+      nga.field('year'),
 			nga.field('started', 'boolean'),
 			nga.field('indoor', 'boolean')
 		]);
@@ -116,7 +119,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 			nga.field('precedence'),
 			nga.field('tournament')
 				.map(function truncate(value, entry) {
-					return value.name;
+					return value.name + '-' + value.year;
 				})
 		])
 		.sortField('precedence')
@@ -141,7 +144,9 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 			nga.field('precedence'),
 			nga.field('tournament', 'reference')
 				.targetEntity(tournament)
-				.targetField(nga.field('name'))
+				.targetField(nga.field('name')
+          .map(function(value, entry) { return entry.name + '-' + entry.year;})
+        )
 		]);
 	round.editionView()
 		.title('Edit Round')
@@ -152,7 +157,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 			nga.field('precedence'),
 			nga.field('tournament')
 				.map(function truncate(value, entry) {
-					return value.name;
+          return value.name + '-' + value.year;
 				})
 				.editable(false)
 		]);
@@ -166,7 +171,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 			nga.field('precedence'),
 			nga.field('tournament')
 				.map(function truncate(value, entry) {
-					return value.name;
+          return value.name + '-' + value.year;
 				})
 		]);
 	//----------------------------------------------MATCH
@@ -202,7 +207,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				}),
 			nga.field('location')
 		])
-		.listActions(['show', 'edit', 'delete']);
+		.listActions(['edit', 'delete']);
 	match.creationView()
 		.title('New Match')
 		.fields([
@@ -216,7 +221,11 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				.targetField(nga.field('fullName')),
 			nga.field('round', 'reference')
 				.targetEntity(round)
-				.targetField(nga.field('name')),
+				.targetField(nga.field('name')
+          .map(function(value, entry) {
+            return entry.name + ' ' + entry.tournament.name + '-' + entry.tournament.year;
+          })
+        ),
 			nga.field('date', 'datetime')
 				.label('Play On (yyyy-MM-dd)')
 				.format('yyyy-MM-dd')
@@ -234,15 +243,16 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				.choices([
 				  { value: 'Niagara Courts', label: 'Niagara Courts' },
 				  { value: 'State University', label: 'State University' },
+          { value: 'Tennis Club Acvila', label: 'Tennis Club Acvila' }
 				])
 		]);
 	match.editionView()
 		.title('Edit Match')
 		.fields([
-			nga.field('round')
-				.map(function truncate(value, entry) {
-					return value.name;
-				})
+        nga.field('round')
+          .map(function truncate(value, entry) {
+            return value.name;
+          })
 				.editable(false),
 			nga.field('createdAt')
 				.label('Title')
@@ -268,6 +278,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				.choices([
 				  { value: 'Niagara Courts', label: 'Niagara Courts' },
 				  { value: 'State University', label: 'State University' },
+          { value: 'Tennis Club Acvila', label: 'Tennis Club Acvila' }
 				])
 		]);
 	//----------------------------------------------DOUBLE_MATCH
@@ -301,7 +312,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				}),
 			nga.field('location')
 		])
-		.listActions(['show', 'edit', 'delete']);
+		.listActions(['edit', 'delete']);
 	doublematch.creationView()
 		.title('New DoubleMatch')
 		.fields([
@@ -321,9 +332,13 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				.label('Player B 2')
 				.targetEntity(player)
 				.targetField(nga.field('fullName')),
-			nga.field('round', 'reference')
-				.targetEntity(round)
-				.targetField(nga.field('name')),
+      nga.field('round', 'reference')
+        .targetEntity(round)
+        .targetField(nga.field('name')
+          .map(function(value, entry) {
+            return entry.name + ' ' + entry.tournament.name + '-' + entry.tournament.year;
+          })
+        ),
 			nga.field('date', 'datetime')
 				.label('Play On (yyyy-MM-dd)')
 				.format('yyyy-MM-dd')
@@ -341,6 +356,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				.choices([
 				  { value: 'Niagara Courts', label: 'Niagara Courts' },
 				  { value: 'State University', label: 'State University' },
+          { value: 'Tennis Club Acvila', label: 'Tennis Club Acvila' }
 				])
 		]);
 	doublematch.editionView()
@@ -385,8 +401,22 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				.choices([
 				  { value: 'Niagara Courts', label: 'Niagara Courts' },
 				  { value: 'State University', label: 'State University' },
+          { value: 'Tennis Club Acvila', label: 'Tennis Club Acvila' }
 				])
 		]);
+
+  var customHeaderTemplate =
+    '<div class="navbar-header">' +
+    '<span class="icon-bar"></span>' +
+    '<span class="icon-bar"></span>' +
+    '<span class="icon-bar"></span>' +
+    '</button>' +
+    '<a class="navbar-brand" href="#" ng-click="appController.displayHome()">Endava Open Admin Panel</a>' +
+    '</div>' +
+    '<p class="navbar-text navbar-right hidden-xs">' +
+    '</p>';
+
+  app.header(customHeaderTemplate);
 
 	nga.configure(app);
 }]);

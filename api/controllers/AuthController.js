@@ -103,10 +103,12 @@ var AuthController = {
    * @param {Object} res
    */
   register: function (req, res) {
-    res.locals.layout = 'layouts/adminlayout';
-    res.view({
-      errors: req.flash('error')
-    });
+    res.send(401);
+
+    //res.locals.layout = 'layouts/adminlayout';
+    //res.view({
+    //  errors: req.flash('error')
+    //});
   },
 
   /**

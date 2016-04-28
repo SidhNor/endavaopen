@@ -16,8 +16,11 @@ module.exports = {
     started: {
       type: 'boolean'
     },
-	indoor: {
+	  indoor: {
       type: 'boolean'
+    },
+    year: {
+      type: 'integer'
     },
     rounds: {
       collection: 'round',
