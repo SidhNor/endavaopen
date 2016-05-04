@@ -23,14 +23,14 @@ var SchedulePage = React.createClass({
               <ScheduleIcon className="schedule"/>
               <div className="schedule-rows">
                 <div className="layout horizontal">
-                  <span className="schedule-time">11:00 - 11:30</span>
+                  <span className="schedule-time">10:45 - 10:50</span>
                   <span>Opening Ceremony</span>
                 </div>
                 <div className="layout horizontal">
-                  <span className="schedule-time">11:30 - 14:00</span>
+                  <span className="schedule-time">11:00 - 14:00</span>
                   <span>Round 0</span>
                 </div> <div className="layout horizontal">
-                  <span className="schedule-time">14:30 - 18:30</span>
+                  <span className="schedule-time">14:30 - 20:00</span>
                   <span>Round 1 (Singles)</span>
                 </div>
               </div>
@@ -52,7 +52,7 @@ var SchedulePage = React.createClass({
                   <span>Round 1 (Doubles)</span>
                 </div>
                 <div className="layout horizontal">
-                  <span className="schedule-time">14:30 - 17:30</span>
+                  <span className="schedule-time">14:30 - 18:00</span>
                   <span>Quarterfinals (Singles and Doubles)</span>
                 </div>
               </div>
@@ -70,15 +70,15 @@ var SchedulePage = React.createClass({
                   <span>Semifinals (Singles)</span>
                 </div>
                 <div className="layout horizontal">
-                  <span className="schedule-time">12:00 - 13:00</span>
+                  <span className="schedule-time">12:00 - 14:00</span>
                   <span>Semifinals (Doubles)</span>
                 </div>
                 <div className="layout horizontal">
-                  <span className="schedule-time">14:00 - 15:00</span>
+                  <span className="schedule-time">14:30 - 15:30</span>
                   <span>Finals (Doubles)</span>
                 </div>
                 <div className="layout horizontal">
-                  <span className="schedule-time">15:30 - 16:30</span>
+                  <span className="schedule-time">16:00 - 18:00</span>
                   <span>Finals (Singles)</span>
                 </div>
               </div>

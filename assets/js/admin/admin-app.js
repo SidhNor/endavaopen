@@ -28,7 +28,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 			nga.field('deliveryUnit')
 				.label('Work')
 				.map(function (value, entry) {
-					return entry.jobTitle + ' (' + entry.deliveryUnit + ')';
+					return (entry.jobTitle || ' ') + ' (' + (entry.deliveryUnit || ' ') + ')';
 				}),
 			nga.field('createdAt', 'datetime')
 				.label('Created On')
