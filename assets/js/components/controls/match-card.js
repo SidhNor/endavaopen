@@ -47,7 +47,7 @@ var MatchCard = React.createClass({
     var playerInfo;
     if (this.props.isDouble) {
       playerInfo = (
-        <div className="layout horizontal center">
+        <div className="layout horizontal center match-players">
           <MatchPlayer player={match.player11} player2={match.player12}/>
           <div className="score flex">
             {score}
@@ -57,7 +57,7 @@ var MatchCard = React.createClass({
       );
     } else {
       playerInfo = (
-        <div className="layout horizontal center">
+        <div className="layout horizontal center match-players">
           <MatchPlayer player={match.player1}/>
           <div className="score flex">
             {score}
