@@ -202,7 +202,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 			nga.field('date')
 				.map(function (value, entry) {
 					if(value) {
-						return value.substr(0, 10) + ' ' + value.substr(11, 5);
+						return new Date(value).toLocaleString();
 					}
 				}),
 			nga.field('location')
@@ -231,7 +231,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				.format('yyyy-MM-dd')
 				.map(function (value, entry) {
 					if(entry.date && entry.time) {
-						entry.date = entry.date + 'T' + entry.time + ':00.000Z';
+						entry.date = entry.date + 'T' + entry.time + '+03:00';
 						entry.time = undefined;
 					}
 
@@ -264,10 +264,9 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 			nga.field('date', 'string')
 				.label('Play On (yyyy-MM-dd HH:mm)')
 				.map(function truncate(value, entry) {
-					if(entry.round && value) {
-						return value.substr(0, 10) + ' ' + value.substr(11, 5);
+					if(value) {
+						return new Date(value).toString();
 					}
-
 					return value;
 				}),
 			nga.field('set1'),
@@ -308,7 +307,10 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				.isDetailLink(true),
 			nga.field('date')
 				.map(function (value, entry) {
-					return value.substr(0, 10) + ' ' + value.substr(11, 5);
+          if (value) {
+            return new Date(value).toLocaleString();
+          }
+          return value;
 				}),
 			nga.field('location')
 		])
@@ -342,14 +344,14 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 			nga.field('date', 'datetime')
 				.label('Play On (yyyy-MM-dd)')
 				.format('yyyy-MM-dd')
-				.map(function (value, entry) {
-					if(entry.date && entry.time) {
-						entry.date = entry.date + ' ' + entry.time;
-						entry.time = undefined;
-					}
+        .map(function (value, entry) {
+          if(entry.date && entry.time) {
+            entry.date = entry.date + 'T' + entry.time + '+03:00';
+            entry.time = undefined;
+          }
 
-					return entry.date;
-				}),
+          return entry.date;
+        }),
 			nga.field('time')
 				.label('Time (HH:mm)'),
 			nga.field('location', 'choice')
@@ -387,11 +389,10 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 			nga.field('date', 'string')
 				.label('Play On (yyyy-MM-dd HH:mm)')
 				.map(function truncate(value, entry) {
-					if(entry.round && value) {
-						return value.substr(0, 10) + ' ' + value.substr(11, 5);
-					}
-
-					return value;
+          if(value) {
+            return new Date(value).toString();
+          }
+          return value;
 				}),
 			nga.field('set1'),
 			nga.field('set2'),
