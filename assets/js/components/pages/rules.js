@@ -33,8 +33,8 @@ var RulesPage = React.createClass({
         <section className="page-section">
           <Card>
             <h4>Specific rules for Endava Open 2016</h4>
-            <div class="layout vertical">
-              <ul class="rule-list">
+            <div className="layout vertical">
+              <ul className="rule-list">
                 <li>30 players of whom 23 men and 7 women. Thus, 6 women will play among women and 1 woman will play with 1 man.</li>
                 <li>Those who lose in Round 0, Round 1 and Round 2 (only 1 player) will play in "Doubles"</li>
                 <li>The 1st set of Round 0, Round 1 and Round 2  will start with score 2:2</li>
