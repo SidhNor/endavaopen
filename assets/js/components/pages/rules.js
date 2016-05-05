@@ -21,12 +21,26 @@ var RulesPage = React.createClass({
             <div className="layout horizontal">
               <dl>
                 <dt>Playing level</dt>
-                <dd>2.0 to 3.0</dd>
+                <dd>2.0 to 4.0</dd>
                 <dt>Format</dt>
                 <dd>Single and Double Elimination</dd>
                 <dt>Gender</dt>
-                <dd>M</dd>
+                <dd>M and F</dd>
               </dl>
+            </div>
+          </Card>
+        </section>
+        <section className="page-section">
+          <Card>
+            <h4>Specific rules for Endava Open 2016</h4>
+            <div class="layout vertical">
+              <ul class="rule-list">
+                <li>30 players of whom 23 men and 7 women. Thus, 6 women will play among women and 1 woman will play with 1 man.</li>
+                <li>Those who lose in Round 0, Round 1 and Round 2 (only 1 player) will play in "Doubles"</li>
+                <li>The 1st set of Round 0, Round 1 and Round 2  will start with score 2:2</li>
+                <li>Starting from the Quarterfinals, the sets will start from 0:0</li>
+                <li>Super Tiebreak will be played in Round 0, Round 1 and Round 2 in case the set score is 1:1</li>
+              </ul>
             </div>
           </Card>
         </section>
