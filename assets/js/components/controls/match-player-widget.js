@@ -49,6 +49,7 @@ var MatchPlayer = React.createClass({
         </div>
       );
     }
+    return <div></div>
   }
 });
 
