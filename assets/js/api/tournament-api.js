@@ -4,8 +4,8 @@ var http = require('request-promise');
 var baseUrl = typeof window != 'undefined' ? window.location.origin : 'https://open-sidhnor.rhcloud.com';
 http.baseUrl = baseUrl;
 
-var standardTournamentId = /*4;*/'555356891c7b02c207162f44';
-var doubleTournamentId = /*2;*/'555356901c7b02c207162f45';
+var standardTournamentId = /*4;*/'572adeea37cbe768225e1206';
+var doubleTournamentId = /*2;*/'572adede37cbe768225e1205';
 
 var TournamentApi = {
   getStandardTournament: function() {
