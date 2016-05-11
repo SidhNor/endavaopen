@@ -17,15 +17,15 @@ var TournamentApi = {
   },
 
   getRounds: function() {
-    return http.get({url: '/round', baseUrl: baseUrl});
+    return http.get({url: '/round?limit=100', baseUrl: baseUrl});
   },
 
   getMatches: function() {
-    return http.get({url: '/match', baseUrl: baseUrl});
+    return http.get({url: '/match?limit=100', baseUrl: baseUrl});
   },
 
   getDoubleMatches: function() {
-    return http.get({url: '/doublematch', baseUrl: baseUrl});
+    return http.get({url: '/doublematch?limit=100', baseUrl: baseUrl});
   }
 
 };

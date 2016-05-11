@@ -16,11 +16,11 @@ var MatchPlayer = React.createClass({
     var player2 = this.props.player2 ? this.props.player2 : false;
     if (player2 && player) {
       //We are doubles here
-      var picUrl = player.photoUri !== '' ? player.photoUri : '/images/no-pic.jpg';
+      var picUrl = player.photoUri ? player.photoUri : '/images/no-pic.jpg';
       var bgImg = {
         backgroundImage: 'url(' + picUrl + ')'
       };
-      picUrl = player2.photoUri !== '' ? player2.photoUri : '/images/no-pic.jpg';
+      picUrl = player2.photoUri ? player2.photoUri : '/images/no-pic.jpg';
       var bgImg2 = {
         backgroundImage: 'url(' + picUrl + ')'
       };
@@ -36,7 +36,7 @@ var MatchPlayer = React.createClass({
         </div>
       );
     } else if (player) {
-      var picUrl = player.photoUri !== '' ? player.photoUri : '/images/no-pic.jpg';
+      var picUrl = player.photoUri ? player.photoUri : '/images/no-pic.jpg';
       var bgImg = {
         backgroundImage: 'url(' + picUrl + ')'
       };
