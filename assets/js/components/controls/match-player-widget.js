@@ -14,7 +14,7 @@ var MatchPlayer = React.createClass({
   render: function() {
     var player = this.props.player;
     var player2 = this.props.player2 ? this.props.player2 : false;
-    if (player2) {
+    if (player2 && player) {
       //We are doubles here
       var picUrl = player.photoUri !== '' ? player.photoUri : '/images/no-pic.jpg';
       var bgImg = {
@@ -35,7 +35,7 @@ var MatchPlayer = React.createClass({
             {player2.fullName}</h5>
         </div>
       );
-    } else {
+    } else if (player) {
       var picUrl = player.photoUri !== '' ? player.photoUri : '/images/no-pic.jpg';
       var bgImg = {
         backgroundImage: 'url(' + picUrl + ')'
