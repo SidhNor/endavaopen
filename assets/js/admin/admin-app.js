@@ -249,7 +249,11 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				.choices([
 				  { value: 'Niagara Courts', label: 'Niagara Courts' },
 				  { value: 'State University', label: 'State University' },
-          { value: 'Tennis Club Acvila', label: 'Tennis Club Acvila' }
+          { value: 'Tennis Club Acvila Court 1', label: 'Tennis Club Acvila Court 1' },
+          { value: 'Tennis Club Acvila Court 2', label: 'Tennis Club Acvila Court 2' },
+          { value: 'Tennis Club Acvila Court 3', label: 'Tennis Club Acvila Court 3' },
+          { value: 'Tennis Club Acvila Court 4', label: 'Tennis Club Acvila Court 4' }
+
 				])
 		]);
 	match.editionView()
@@ -283,7 +287,10 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				.choices([
 				  { value: 'Niagara Courts', label: 'Niagara Courts' },
 				  { value: 'State University', label: 'State University' },
-          { value: 'Tennis Club Acvila', label: 'Tennis Club Acvila' }
+          { value: 'Tennis Club Acvila Court 1', label: 'Tennis Club Acvila Court 1' },
+          { value: 'Tennis Club Acvila Court 2', label: 'Tennis Club Acvila Court 2' },
+          { value: 'Tennis Club Acvila Court 3', label: 'Tennis Club Acvila Court 3' },
+          { value: 'Tennis Club Acvila Court 4', label: 'Tennis Club Acvila Court 4' }
 				])
 		]);
 	//----------------------------------------------DOUBLE_MATCH
@@ -376,7 +383,10 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				.choices([
 				  { value: 'Niagara Courts', label: 'Niagara Courts' },
 				  { value: 'State University', label: 'State University' },
-          { value: 'Tennis Club Acvila', label: 'Tennis Club Acvila' }
+          { value: 'Tennis Club Acvila Court 1', label: 'Tennis Club Acvila Court 1' },
+          { value: 'Tennis Club Acvila Court 2', label: 'Tennis Club Acvila Court 2' },
+          { value: 'Tennis Club Acvila Court 3', label: 'Tennis Club Acvila Court 3' },
+          { value: 'Tennis Club Acvila Court 4', label: 'Tennis Club Acvila Court 4' }
 				])
 		]);
 	doublematch.editionView()
@@ -420,7 +430,10 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				.choices([
 				  { value: 'Niagara Courts', label: 'Niagara Courts' },
 				  { value: 'State University', label: 'State University' },
-          { value: 'Tennis Club Acvila', label: 'Tennis Club Acvila' }
+          { value: 'Tennis Club Acvila Court 1', label: 'Tennis Club Acvila Court 1' },
+          { value: 'Tennis Club Acvila Court 2', label: 'Tennis Club Acvila Court 2' },
+          { value: 'Tennis Club Acvila Court 3', label: 'Tennis Club Acvila Court 3' },
+          { value: 'Tennis Club Acvila Court 4', label: 'Tennis Club Acvila Court 4' }
 				])
 		]);
 
