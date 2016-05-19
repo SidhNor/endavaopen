@@ -23,7 +23,7 @@ var MatchCard = React.createClass({
       match = matchesStore.getMatchById(this.props.matchId);
     }
 
-    var matchDate = moment.utc(match.date);
+    var matchDate = moment(match.date);
 
     var score = '';
     if (match.set1) {
