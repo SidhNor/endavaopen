@@ -76,6 +76,8 @@ var Header = React.createClass({
       'fade-in-enter-active': this.state.entering && this.state.enteringActive
     });
 
+    var liveLabel = <a href='http://live.endava.com' target="__blank">Live</a>;
+
     return (
       <header className="masthead bg-primary">
         <Toolbar className="open-menu">
@@ -92,7 +94,7 @@ var Header = React.createClass({
               <Tab label="Schedule" route="schedule" onActive={this._onActive} />
               <Tab label="Players" route="players" onActive={this._onActive}/>
               <Tab label="Rules" route="rules" onActive={this._onActive}/>
-              <Tab label="Live" route="live" onActive={this._onActive}/>
+              <Tab label={liveLabel} isLink="true" route="live" onActive={this._onActive}/>
             </Tabs>
           </ToolbarGroup>
         </Toolbar>
@@ -109,6 +111,8 @@ var Header = React.createClass({
   },
 
   _onActive: function (tab) {
+    if (tab.props.isLink) return;
+
     this.transitionTo(tab.props.route);
   },
 

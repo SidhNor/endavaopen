@@ -8,7 +8,7 @@ var React = require('react'),
     { route: 'schedule', text: 'Schedule' },
     { route: 'players', text: 'Players' },
     { route: 'rules', text: 'Rules' },
-    { route: 'live', text: 'Live' }
+    { text: 'Live', type: 'LINK', target: '__blank', payload: 'http://live.endava.com' }
   ];
 
 var OpenLogo = require('./controls/open-logo.js')
@@ -62,7 +62,9 @@ var AppLeftNav = React.createClass({
   },
 
   _onLeftNavChange: function(e, key, payload) {
-    this.transitionTo(payload.route);
+    if (payload.route) {
+      this.transitionTo(payload.route);
+    }
   },
 
   _onHeaderClick: function() {
