@@ -18,11 +18,7 @@ var LivePage = React.createClass({
           <Card>
             <h4>Endava Open live</h4>
             <div className="layout vertical">
-              <div>See the 2014 finals while you prepare for the 2016 tournament</div>
-              <div className="hs-responsive-embed-youtube">
-                <iframe src="https://www.youtube.com/embed/9y4L17siFuk" allowfullscreen="true" frameBorder="0">
-                </iframe>
-              </div>
+              <a href="http://live.endava.com" target="__blank">Watch now</a>
             </div>
           </Card>
         </section>
