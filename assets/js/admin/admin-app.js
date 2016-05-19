@@ -30,6 +30,8 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 				.map(function (value, entry) {
 					return (entry.jobTitle || ' ') + ' (' + (entry.deliveryUnit || ' ') + ')';
 				}),
+      nga.field('active', 'boolean')
+        .label('Active'),
 			nga.field('createdAt', 'datetime')
 				.label('Created On')
 		])
@@ -43,6 +45,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
 			nga.field('deliveryUnit').label('Delivery Unit'),
 			nga.field('jobTitle').label('Job Title'),
 			nga.field('description', 'wysiwyg'),
+      nga.field('active', 'boolean').label('Active this year'),
 			nga.field('seedNumber')
 		]);
 	player.editionView()
@@ -54,6 +57,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
       nga.field('deliveryUnit').label('Delivery Unit'),
       nga.field('jobTitle').label('Job Title'),
 			nga.field('description', 'wysiwyg'),
+      nga.field('active', 'boolean').label('Active this year'),
 			nga.field('seedNumber')
 		]);
 	player.showView()
@@ -66,6 +70,7 @@ endavaopenadmin.config(['NgAdminConfigurationProvider', function(nga) {
       nga.field('deliveryUnit').label('Delivery Unit'),
       nga.field('jobTitle').label('Job Title'),
 			nga.field('description', 'wysiwyg'),
+      nga.field('active', 'boolean').label('Active this year'),
 			nga.field('seedNumber'),
 			nga.field('createdAt', 'datetime'),
 			nga.field('updatedAt', 'datetime')

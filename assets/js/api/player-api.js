@@ -6,7 +6,7 @@ http.baseUrl = baseUrl;
 
 var PlayerApi = {
   getPlayers: function() {
-    return http.get({url: '/player?limit=100', baseUrl: baseUrl})
+    return http.get({url: '/player?limit=100&active=true', baseUrl: baseUrl})
   }
 };
 

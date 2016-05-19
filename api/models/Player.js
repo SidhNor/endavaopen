@@ -30,6 +30,9 @@ module.exports = {
     },
     seedNumber: {
       type: 'string'
+    },
+    active: {
+      type: 'boolean'
     }
   }
 };
