@@ -6,6 +6,7 @@ var mui = require('material-ui');
 var Card = require('../controls/card.js');
 var MatchCard = require('../controls/match-card');
 var roundStore = require('../../stores/roundStore');
+var _ = require('underscore');
 
 var RoundDetails = React.createClass({
 
@@ -54,13 +55,18 @@ var RoundDetails = React.createClass({
     if (!this.state.round) {
       return <div></div>;
     }
-    var matches = this.state.round.matches.map(function(match) {
+
+    var matches = _.sortBy(this.state.round.matches, function(match) {
+      return match.date;
+    }).map(function(match) {
       return (
         <MatchCard matchId={match.id} key={match.id} isDouble={false}/>
       );
     });
 
-    var doubleMatches = this.state.round.doubleMatches.map(function(doubleMatch) {
+    var doubleMatches = _.sortBy(this.state.round.doubleMatches, function(match) {
+      return match.date;
+    }).map(function(doubleMatch) {
       return (
         <MatchCard matchId={doubleMatch.id} key={doubleMatch.id} isDouble={true}/>
       );
