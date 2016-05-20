@@ -21,11 +21,11 @@ var TournamentApi = {
   },
 
   getMatches: function() {
-    return http.get({url: '/match?limit=100', baseUrl: baseUrl});
+    return http.get({url: '/match?limit=100&sort=date+ASC', baseUrl: baseUrl});
   },
 
   getDoubleMatches: function() {
-    return http.get({url: '/doublematch?limit=100', baseUrl: baseUrl});
+    return http.get({url: '/doublematch?limit=100&sort=date+ASC', baseUrl: baseUrl});
   }
 
 };
